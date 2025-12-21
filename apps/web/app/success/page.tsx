@@ -1,4 +1,5 @@
 import Badge from "@/components/ui/badge";
+import Link from "next/link";
 
 export default function SuccessPage({
   searchParams,
@@ -20,18 +21,18 @@ export default function SuccessPage({
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <a
+          <Link
             href="/#resume-builder"
             className="ringy rounded-2xl bg-black px-5 py-3 text-sm font-medium text-white shadow-soft hover:opacity-90 dark:bg-white dark:text-black"
           >
             Back to resume builder
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             className="ringy rounded-2xl border border-black/10 bg-white/50 px-5 py-3 text-sm font-medium shadow-sm hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
           >
             Home
-          </a>
+          </Link>
         </div>
 
         <p className="mt-4 text-xs opacity-70">
