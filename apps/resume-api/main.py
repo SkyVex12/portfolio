@@ -12,12 +12,26 @@ try:
 except Exception:
     keyboard = None
 
-import pyperclip
-from winotify import Notification
+try:
+    import pyperclip
+except Exception:
+    pyperclip = None
 
-from docx import Document
-from docx2pdf import convert
+try:
+    from winotify import Notification
+except Exception:
+    Notification = None
 
+try:
+    from docx2pdf import convert
+except Exception:
+    convert = None
+
+try:
+    from docx import Document
+except Exception:
+    Document = None
+    
 from openai import OpenAI, OpenAIError
 
 
@@ -567,6 +581,8 @@ def on_hotkey_generate():
     is_running = True
 
     try:
+        if not pyperclip:
+            raise RuntimeError("Missing pyperclip, cannot read clipboard")
         jd = pyperclip.paste()
         if not jd.strip():
             notify("Clipboard is empty")
