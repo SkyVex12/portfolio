@@ -33,7 +33,7 @@ Requirements:
 }
 
 export async function POST(req: Request) {
-  const jar = cookies();
+  const jar = await cookies();
 
   const used = jar.get("trial_resume_used")?.value === "1";
   if (used) {
