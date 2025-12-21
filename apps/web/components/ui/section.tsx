@@ -11,7 +11,7 @@ export default function Section({
   id: string;
   eyebrow?: string;
   title: string;
-  desc: React.ReactNode;
+  desc?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
 }) {
