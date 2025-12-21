@@ -16,9 +16,26 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Plausible Analytics */}
+        <script
+          async
+          src="https://plausible.io/js/pa-BBdKcsiDAKn_5TXMvdYdq.js"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)};
+              plausible.init=plausible.init||function(i){plausible.o=i||{}};
+              plausible.init();
+            `,
+          }}
+        />
+      </head>
       <body>
         <Providers>{children}</Providers>
       </body>
     </html>
   );
 }
+

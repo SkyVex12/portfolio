@@ -70,10 +70,6 @@ export default function Contact() {
               {PROFILE.email}
             </a>
           </div>
-
-          <div className="mt-3 text-xs opacity-70">
-            This form uses <code className="px-1">mailto:</code> (simple + reliable). For a server form, add Resend/SendGrid later.
-          </div>
         </div>
 
         <div className="rounded-3xl border border-black/10 bg-white/70 p-6 shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">

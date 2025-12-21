@@ -65,8 +65,37 @@
       <Section
         id="resume-builder"
         eyebrow="Product"
-        title="ATS resume builder (trial)"
-        desc="Paste a Job Description and generate 1 ATS-optimized senior resume for free. More variants are paid."
+        title="ATS Resume Builder (Trial)"
+        desc={
+          <>
+            <p>
+              Paste a Job Description and generate 1 ATS-optimized senior resume for free.
+            </p>
+
+            <p className="mt-2">
+              The output typically scores{" "}
+              <a
+                href="https://www.jobscan.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:opacity-80"
+              >
+                90%+ on Jobscan-style ATS checks
+              </a>.
+            </p>
+
+            <p className="mt-2">
+              If the result looks valuable, I can also provide a{" "}
+              <a
+                href="#contact"
+                className="underline underline-offset-2 hover:opacity-80"
+              >
+                local desktop version
+              </a>{" "}
+              for power users (hotkeys, fast iterations, private usage).
+            </p>
+          </>
+        }
       >
         <div className="grid gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2 rounded-3xl border border-black/10 bg-white/70 p-6 shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
