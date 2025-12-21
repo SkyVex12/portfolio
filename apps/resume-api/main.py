@@ -7,7 +7,11 @@ import io
 import random
 from pathlib import Path
 
-import keyboard
+try:
+    import keyboard
+except Exception:
+    keyboard = None
+
 import pyperclip
 from winotify import Notification
 
@@ -671,10 +675,10 @@ def on_hotkey_pdf_only():
 
 def main():
     notify("Resume Generator is running")
-    keyboard.add_hotkey("ctrl+q", on_hotkey_generate)
-    keyboard.add_hotkey("ctrl+alt+p", on_hotkey_pdf_only)
-    keyboard.wait()
-
+    if keyboard:
+        keyboard.add_hotkey("ctrl+q", on_hotkey_generate)
+        keyboard.add_hotkey("ctrl+alt+p", on_hotkey_pdf_only)
+        keyboard.wait()
 
 if __name__ == "__main__":
     main()
