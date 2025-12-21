@@ -14,7 +14,7 @@ services:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - RESUME_BUILDER_BACKEND_URL=http://api:8000
       - NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL:-http://localhost:3000}
-      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4.1}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4.1-mini}
       - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY:-}
       - STRIPE_PRICE_ID=${STRIPE_PRICE_ID:-}
     ports:

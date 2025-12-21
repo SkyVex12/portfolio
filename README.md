@@ -15,7 +15,7 @@ Create these files:
 OPENAI_API_KEY="YOUR_KEY"
 RESUME_BUILDER_BACKEND_URL="http://localhost:8000"
 # Optional:
-# OPENAI_MODEL="gpt-4.1"
+# OPENAI_MODEL="gpt-4.1-mini"
 ```
 
 **apps/resume-api/.env**

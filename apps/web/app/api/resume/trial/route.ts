@@ -102,7 +102,7 @@ ${tone || "Senior, confident, concise"}
 `.trim();
 
   const resp = await openai.responses.create({
-    model: process.env.OPENAI_MODEL || "gpt-4.1",
+    model: process.env.OPENAI_MODEL || "gpt-4.1-mini",
     input: [
       { role: "system", content: systemPrompt() },
       { role: "user", content: input },

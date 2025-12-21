@@ -50,7 +50,7 @@ export async function POST(req: Request) {
     .join("\n");
 
   const response = await openai.responses.create({
-    model: process.env.OPENAI_MODEL || "gpt-4.1",
+    model: process.env.OPENAI_MODEL || "gpt-4.1-mini",
     input: [
       { role: "system", content: buildSystemPrompt() },
       { role: "user", content: userText },
