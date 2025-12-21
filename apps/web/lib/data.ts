@@ -11,7 +11,7 @@ export const PROFILE = {
   ctaSecondary: { label: "See projects", href: "#projects" },
   availability: "Available for short-term AI automation & bot projects (December + Q1).",
   location: "Remote (US/Europe friendly)",
-  email: "you@example.com",
+  email: "mitrovicgoran598@gmail.com",
   socials: {
     github: "https://github.com/",
     linkedin: "https://linkedin.com/in/",

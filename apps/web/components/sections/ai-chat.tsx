@@ -152,10 +152,6 @@ export default function AiChat() {
               <li>risks + guardrails</li>
             </ul>
           </div>
-
-          <div className="mt-6 text-xs opacity-70">
-            If you see an error: add <code className="px-1">OPENAI_API_KEY</code> in <code className="px-1">.env.local</code>.
-          </div>
         </div>
       </div>
     </Section>

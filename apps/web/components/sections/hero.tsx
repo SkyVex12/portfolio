@@ -104,10 +104,6 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-
-            <div className="mt-6 text-xs opacity-70">
-              Tip: Update your contact email in <code className="px-1">lib/data.ts</code>
-            </div>
           </div>
         </div>
       </div>
