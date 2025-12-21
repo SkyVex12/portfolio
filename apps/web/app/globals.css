@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: 255 255 255;
+  --fg: 10 18 33;
+  --muted: 99 115 129;
+  --card: 255 255 255;
+  --card2: 248 250 252;
+  --ring: 2 132 199;
+}
+.dark{
+  --bg: 6 12 24;
+  --fg: 233 239 255;
+  --muted: 149 162 188;
+  --card: 10 18 33;
+  --card2: 13 24 45;
+  --ring: 56 189 248;
+}
+
+html { scroll-behavior: smooth; }
+body { background: rgb(var(--bg)); color: rgb(var(--fg)); }
+
+/* subtle animated backdrop */
+.mesh {
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(40% 35% at 30% 30%, rgba(56,189,248,0.20), transparent 60%),
+    radial-gradient(35% 40% at 70% 40%, rgba(168,85,247,0.18), transparent 60%),
+    radial-gradient(40% 35% at 55% 70%, rgba(34,197,94,0.14), transparent 60%);
+  filter: blur(40px);
+  animation: floaty 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes floaty {
+  from { transform: translate3d(-1%, -1%, 0) scale(1); }
+  to { transform: translate3d(1%, 1%, 0) scale(1.03); }
+}
+
+.ringy:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(var(--ring), 0.35);
+}
