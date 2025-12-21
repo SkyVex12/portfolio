@@ -1,11 +1,13 @@
 import Badge from "@/components/ui/badge";
 import Link from "next/link";
 
-export default function SuccessPage({
+export default async function SuccessPage({
   searchParams,
 }: {
-  searchParams: { session_id?: string };
+  searchParams: Promise<{ session_id?: string }>;
 }) {
+  const sp = await searchParams;
+
   return (
     <main className="mx-auto max-w-3xl px-4 pt-24 pb-16">
       <div className="rounded-3xl border border-black/10 bg-white/70 p-8 shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
@@ -17,7 +19,7 @@ export default function SuccessPage({
 
         <div className="mt-5 rounded-2xl border border-black/10 bg-black/[0.02] p-4 text-sm dark:border-white/10 dark:bg-white/[0.03]">
           <div className="font-semibold">Session</div>
-          <div className="mt-1 opacity-80">{searchParams.session_id || "(missing)"}</div>
+          <div className="mt-1 opacity-80">{sp.session_id || "(missing)"}</div>
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
