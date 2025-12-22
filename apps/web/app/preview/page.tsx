@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/navbar";
 import Hero from "@/components/sections/hero";
 import AiChat from "@/components/sections/ai-chat";
@@ -8,11 +10,26 @@ import Experience from "@/components/sections/experience";
 import Certifications from "@/components/sections/certifications";
 import Proof from "@/components/sections/proof";
 import Contact from "@/components/sections/contact";
-import { SITE_CONFIG, enabledMap, navLinksFromConfig } from "@/lib/site-config";
+import { SITE_CONFIG, enabledMap, navLinksFromConfig, SiteConfig } from "@/lib/site-config";
+import { useEffect, useMemo, useState } from "react";
 
-export default function Page() {
-  const enabled = enabledMap(SITE_CONFIG);
-  const links = navLinksFromConfig(SITE_CONFIG);
+const STORAGE_KEY = "portfolio.siteConfig.v1";
+
+export default function PreviewPage() {
+  const [config, setConfig] = useState<SiteConfig>(SITE_CONFIG);
+
+  useEffect(() => {
+    const saved = window.localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.sections) setConfig(parsed);
+      } catch {}
+    }
+  }, []);
+
+  const enabled = useMemo(() => enabledMap(config), [config]);
+  const links = useMemo(() => navLinksFromConfig(config), [config]);
 
   return (
     <main className="min-h-screen">
@@ -30,24 +47,12 @@ export default function Page() {
 
       <footer className="mx-auto max-w-6xl px-4 pb-12 text-center text-xs text-white/60">
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <a className="underline underline-offset-4 hover:opacity-90" href="/about">
-            About
-          </a>
-          <a className="underline underline-offset-4 hover:opacity-90" href="/privacy">
-            Privacy
-          </a>
-          <a className="underline underline-offset-4 hover:opacity-90" href="/terms">
-            Terms
-          </a>
           <a className="underline underline-offset-4 hover:opacity-90" href="/admin">
-            Admin
+            Back to Admin
           </a>
-          <a className="underline underline-offset-4 hover:opacity-90" href="/preview">
-            Preview
+          <a className="underline underline-offset-4 hover:opacity-90" href="/">
+            Back to Home
           </a>
-        </div>
-        <div className="mt-2">
-          Personal portfolio showcasing example projects. No guarantees or business outcomes implied.
         </div>
       </footer>
     </main>
