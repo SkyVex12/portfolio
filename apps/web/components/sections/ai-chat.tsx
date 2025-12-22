@@ -3,11 +3,21 @@
 import Section from "@/components/ui/section";
 import Badge from "@/components/ui/badge";
 import { QUICK_QUESTIONS } from "@/lib/data";
-import { useMemo, useState } from "react";
-import { Send, Sparkles } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Bot, Send, Sparkles, User } from "lucide-react";
 import { motion } from "framer-motion";
 
 type Msg = { role: "user" | "assistant"; content: string };
+
+function TypingDots() {
+  return (
+    <div className="flex items-center gap-1">
+      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-black/60 [animation-delay:-0.2s] dark:bg-white/70" />
+      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-black/60 [animation-delay:-0.1s] dark:bg-white/70" />
+      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-black/60 dark:bg-white/70" />
+    </div>
+  );
+}
 
 export default function AiChat() {
   const [messages, setMessages] = useState<Msg[]>([
@@ -20,15 +30,25 @@ export default function AiChat() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
   const last = useMemo(() => messages[messages.length - 1], [messages]);
+
+  // Auto-scroll to bottom on new messages / typing state.
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+  }, [messages.length, loading]);
 
   async function send(text: string) {
     const t = text.trim();
     if (!t || loading) return;
+
     setLoading(true);
     setInput("");
 
-    const next = [...messages, { role: "user", content: t } as Msg];
+    const next: Msg[] = [...messages, { role: "user", content: t }];
     setMessages(next);
 
     try {
@@ -45,7 +65,7 @@ export default function AiChat() {
 
       const data = (await res.json()) as { reply: string };
       setMessages([...next, { role: "assistant", content: data.reply }]);
-    } catch (e: any) {
+    } catch {
       setMessages([
         ...next,
         {
@@ -64,7 +84,7 @@ export default function AiChat() {
       id="ai-chat"
       eyebrow="Interactive"
       title="Ask my AI assistant"
-      desc="This chat is wired to a real OpenAI API route. Use it to explore how I’d approach your automation in a pilot."
+      desc="A lightweight chat UI wired to a real API route. Ask about your workflow and I’ll propose a fast pilot plan."
     >
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2">
@@ -77,26 +97,60 @@ export default function AiChat() {
               <Badge>{loading ? "Thinking…" : "Live"}</Badge>
             </div>
 
-            <div className="h-[360px] overflow-auto rounded-2xl border border-black/10 bg-black/[0.02] p-3 dark:border-white/10 dark:bg-white/[0.03]">
+            <div
+              ref={scrollRef}
+              className="h-[380px] overflow-auto rounded-2xl border border-black/10 bg-black/[0.02] p-3 dark:border-white/10 dark:bg-white/[0.03]"
+            >
               <div className="space-y-3">
-                {messages.map((m, idx) => (
+                {messages.map((m, idx) => {
+                  const isUser = m.role === "user";
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={"flex items-end gap-2 " + (isUser ? "justify-end" : "justify-start")}
+                    >
+                      {!isUser && (
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/10">
+                          <Bot size={16} className="opacity-80" />
+                        </div>
+                      )}
+
+                      <div
+                        className={
+                          "max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-relaxed " +
+                          (isUser
+                            ? "bg-black text-white dark:bg-white dark:text-black"
+                            : "border border-black/10 bg-white dark:border-white/10 dark:bg-white/5")
+                        }
+                      >
+                        {m.content}
+                      </div>
+
+                      {isUser && (
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/10">
+                          <User size={16} className="opacity-80" />
+                        </div>
+                      )}
+                    </motion.div>
+                  );
+                })}
+
+                {loading && (
                   <motion.div
-                    key={idx}
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
+                    className="flex items-end gap-2 justify-start"
                   >
-                    <div
-                      className={`max-w-[90%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
-                        m.role === "user"
-                          ? "bg-black text-white dark:bg-white dark:text-black"
-                          : "border border-black/10 bg-white dark:border-white/10 dark:bg-white/5"
-                      }`}
-                    >
-                      {m.content}
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-white shadow-sm dark:border-white/10 dark:bg-white/10">
+                      <Bot size={16} className="opacity-80" />
+                    </div>
+                    <div className="rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm dark:border-white/10 dark:bg-white/5">
+                      <TypingDots />
                     </div>
                   </motion.div>
-                ))}
+                )}
               </div>
             </div>
 
@@ -115,7 +169,7 @@ export default function AiChat() {
               />
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || !input.trim()}
                 className="ringy inline-flex items-center gap-2 rounded-2xl bg-black px-4 py-3 text-sm font-medium text-white shadow-soft hover:opacity-90 disabled:opacity-60 dark:bg-white dark:text-black"
               >
                 <Send size={16} />
@@ -124,7 +178,7 @@ export default function AiChat() {
             </form>
 
             <div className="mt-2 text-xs opacity-70">
-              {last?.role === "assistant" ? "Try a quick question →" : "Waiting for response…"}
+              {last?.role === "assistant" && !loading ? "Try a quick question →" : ""}
             </div>
           </div>
         </div>
@@ -133,12 +187,8 @@ export default function AiChat() {
           <div className="text-sm font-semibold">Quick questions</div>
           <div className="mt-3 flex flex-wrap gap-2">
             {QUICK_QUESTIONS.map((q) => (
-              <button
-                key={q}
-                onClick={() => send(q)}
-                className="ringy text-left"
-              >
-                <Badge className="cursor-pointer hover:opacity-100 opacity-90">{q}</Badge>
+              <button key={q} onClick={() => send(q)} className="ringy text-left">
+                <Badge className="cursor-pointer opacity-90 hover:opacity-100">{q}</Badge>
               </button>
             ))}
           </div>

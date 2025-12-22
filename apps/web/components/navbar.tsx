@@ -7,10 +7,11 @@ import { motion } from "framer-motion";
 const links = [
   { label: "Home", href: "#home" },
   { label: "AI Chat", href: "#ai-chat" },
-    { label: "Resume Builder", href: "#resume-builder" },
+  { label: "Resume Builder", href: "#resume-builder" },
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
 

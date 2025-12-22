@@ -1,12 +1,11 @@
-import dynamic from "next/dynamic";
-
 import Navbar from "@/components/navbar";
 import Hero from "@/components/sections/hero";
 import AiChat from "@/components/sections/ai-chat";
+import ResumeBuilderLazy from "@/components/sections/resume-builder.lazy";
 import Services from "@/components/sections/services";
 import Projects from "@/components/sections/projects";
-import ResumeBuilderLazy from "@/components/sections/resume-builder.lazy";
 import Experience from "@/components/sections/experience";
+import Certifications from "@/components/sections/certifications";
 import Proof from "@/components/sections/proof";
 import Contact from "@/components/sections/contact";
 
@@ -20,8 +19,10 @@ export default function Page() {
       <Services />
       <Projects />
       <Experience />
+      <Certifications />
       <Proof />
       <Contact />
+
       <footer className="mx-auto max-w-6xl px-4 pb-12 text-center text-xs opacity-70">
         <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
           <span suppressHydrationWarning>© {new Date().getFullYear()} Goran.</span>
