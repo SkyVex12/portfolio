@@ -3,12 +3,14 @@ import type { Metadata } from "next";
 import Providers from "@/components/providers";
 
 export const metadata: Metadata = {
-  title: "Goran — AI Bots & Automation",
-  description: "Fashionable portfolio for AI bots, LLM systems, and workflow automation. Ship real business results fast.",
+  title: "Goran — AI Automation & Bot Development",
+  description:
+    "Personal portfolio of Goran, showcasing AI automation, chatbots, and backend integrations.",
   icons: [{ rel: "icon", url: "/favicon.svg" }],
   openGraph: {
-    title: "Goran — AI Bots & Automation",
-    description: "I build practical AI bots and automation that reduce manual work and ship fast.",
+    title: "Goran — AI Automation & Bot Development",
+    description:
+      "Personal portfolio showcasing example AI assistants, workflow automations, and integrations.",
     type: "website",
   },
 };
@@ -18,18 +20,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <meta name="google-site-verification" content="v0K2q6oWirB2gFUoEfA9erjZhK48_mGIsduf3bbqTgg" />
       <head>
-        {/* Plausible Analytics */}
         <script
-          async
-          src="https://plausible.io/js/pa-BBdKcsiDAKn_5TXMvdYdq.js"
-        />
-        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
-            __html: `
-              window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)};
-              plausible.init=plausible.init||function(i){plausible.o=i||{}};
-              plausible.init();
-            `,
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Goran",
+              jobTitle: "AI Automation Developer",
+              url: "https://stellar-platypus-e2865b.netlify.app",
+              sameAs: ["https://github.com/SkyVex12"],
+            }),
           }}
         />
       </head>

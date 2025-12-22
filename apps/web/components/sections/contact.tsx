@@ -24,7 +24,7 @@ export default function Contact() {
       id="contact"
       eyebrow="Let’s build"
       title="Contact"
-      desc="Tell me the workflow you want to automate. I’ll reply with a pilot plan + timeline."
+      desc="Share the workflow you want to automate. I’ll reply with clarifying questions and a practical pilot outline."
     >
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2 rounded-3xl border border-black/10 bg-white/70 p-6 shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
@@ -80,16 +80,20 @@ export default function Contact() {
               <span className="inline-flex items-center gap-2"><Github size={16}/> GitHub</span>
               <span className="opacity-60">↗</span>
             </a>
-            <a className="ringy flex items-center justify-between rounded-2xl border border-black/10 bg-white/50 px-4 py-3 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
-               href={PROFILE.socials.linkedin} target="_blank" rel="noreferrer">
-              <span className="inline-flex items-center gap-2"><Linkedin size={16}/> LinkedIn</span>
-              <span className="opacity-60">↗</span>
-            </a>
-            <a className="ringy flex items-center justify-between rounded-2xl border border-black/10 bg-white/50 px-4 py-3 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
-               href={PROFILE.socials.telegram} target="_blank" rel="noreferrer">
-              <span className="inline-flex items-center gap-2"><Send size={16}/> Telegram</span>
-              <span className="opacity-60">↗</span>
-            </a>
+            {PROFILE.socials.linkedin ? (
+              <a className="ringy flex items-center justify-between rounded-2xl border border-black/10 bg-white/50 px-4 py-3 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                 href={PROFILE.socials.linkedin} target="_blank" rel="noreferrer">
+                <span className="inline-flex items-center gap-2"><Linkedin size={16}/> LinkedIn</span>
+                <span className="opacity-60">↗</span>
+              </a>
+            ) : null}
+            {PROFILE.socials.telegram ? (
+              <a className="ringy flex items-center justify-between rounded-2xl border border-black/10 bg-white/50 px-4 py-3 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                 href={PROFILE.socials.telegram} target="_blank" rel="noreferrer">
+                <span className="inline-flex items-center gap-2"><Send size={16}/> Telegram</span>
+                <span className="opacity-60">↗</span>
+              </a>
+            ) : null}
           </div>
 
           <div className="mt-6">

@@ -20,7 +20,7 @@ export default function Section({
       <div className="mb-10">
         {eyebrow && <div className="text-xs font-semibold tracking-widest opacity-70">{eyebrow}</div>}
         <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">{title}</h2>
-        {desc && <p className="mt-3 max-w-2xl text-sm opacity-80">{desc}</p>}
+        {desc && <div className="mt-3 max-w-2xl text-sm opacity-80">{desc}</div>}
       </div>
       {children}
     </section>

@@ -19,7 +19,7 @@ export default function Hero() {
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <div>
             <div className="flex flex-wrap items-center gap-2">
-              <Badge>Ship real business results</Badge>
+              <Badge>Production-first</Badge>
               <Badge className="bg-transparent">{PROFILE.product.title}</Badge>
             </div>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
@@ -78,7 +78,7 @@ export default function Hero() {
               <Badge>Production-first</Badge>
             </div>
             <p className="mt-2 text-sm opacity-75">
-              Clean, maintainable code + founder-friendly comms. Start small → scale with confidence.
+              Clean, maintainable code with clear scope, guardrails, and sensible defaults.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">

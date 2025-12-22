@@ -1,21 +1,21 @@
 export const PROFILE = {
     product: {
       title: "ATS Resume Builder",
-      subtitle: "90–95%+ ATS (Jobscan-style) • Multiple senior variants from one JD",
+      subtitle: "ATS-friendly resumes • Multiple tailored variants from one job description",
     },
   name: "Goran",
-  headline: "AI BOTS & AUTOMATION | LLM SYSTEMS FOR REAL BUSINESS RESULTS",
+  headline: "AI Automation & Bot Development",
   subhead:
-    "I help startups and businesses build practical AI bots and automation that reduce manual work and prepare teams for Q1 growth.",
+    "I build practical AI assistants, workflow automations, and integrations that reduce manual work and improve operational clarity.",
   ctaPrimary: { label: "Book a 15‑min call", href: "#contact" },
   ctaSecondary: { label: "See projects", href: "#projects" },
-  availability: "Available for short-term AI automation & bot projects (December + Q1).",
+  availability: "Available for short-term AI automation projects.",
   location: "Remote (US/Europe friendly)",
   email: "mitrovicgoran598@gmail.com",
   socials: {
-    github: "https://github.com/",
-    linkedin: "https://linkedin.com/in/",
-    telegram: "https://t.me/",
+    github: "https://github.com/SkyVex12",
+    linkedin: "",
+    telegram: "",
   },
 };
 
