@@ -3,22 +3,46 @@ import type { Metadata } from "next";
 import Providers from "@/components/providers";
 
 export const metadata: Metadata = {
-  title: "Goran — AI Automation & Bot Development",
+  metadataBase: new URL("https://stellar-platypus-e2865b.netlify.app"),
+  title: {
+    default: "Goran — AI Automation Developer",
+    template: "%s — Goran",
+  },
   description:
-    "Personal portfolio of Goran, showcasing AI automation, chatbots, and backend integrations.",
+    "Personal portfolio of Goran, showcasing practical AI automation, chatbots, and backend integrations (demo and personal builds).",
   icons: [{ rel: "icon", url: "/favicon.svg" }],
+  verification: {
+    google: "v0K2q6oWirB2gFUoEfA9erjZhK48_mGIsduf3bbqTgg",
+  },
   openGraph: {
-    title: "Goran — AI Automation & Bot Development",
+    title: "Goran — AI Automation Developer",
     description:
-      "Personal portfolio showcasing example AI assistants, workflow automations, and integrations.",
+      "Portfolio showcasing example AI assistants, workflow automations, and integrations. Transparent scope and contact.",
+    url: "/",
+    siteName: "Goran Portfolio",
     type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Goran — AI Automation Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Goran — AI Automation Developer",
+    description:
+      "Portfolio showcasing example AI assistants, workflow automations, and integrations.",
+    images: ["/og.png"],
   },
 };
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <meta name="google-site-verification" content="v0K2q6oWirB2gFUoEfA9erjZhK48_mGIsduf3bbqTgg" />
       <head>
         <script
           type="application/ld+json"
