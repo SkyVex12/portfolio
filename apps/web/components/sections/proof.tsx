@@ -29,7 +29,7 @@ export default function Proof() {
           </ul>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+        {/* <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
           <div className="flex items-center gap-2 text-sm font-semibold">
             <Mail size={18} className="opacity-80" />
             Contact
@@ -48,7 +48,7 @@ export default function Proof() {
               {PROFILE.location}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Section>
   );

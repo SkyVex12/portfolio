@@ -34,9 +34,9 @@ export const SITE_CONFIG: SiteConfig = {
     { key: "services", label: "Services", href: "#services", enabled: true },
     { key: "projects", label: "Projects", href: "#projects", enabled: true },
     { key: "experience", label: "Experience", href: "#experience", enabled: true },
-    { key: "certifications", label: "Certifications", href: "#certifications", enabled: true },
+    // { key: "certifications", label: "Certifications", href: "#certifications", enabled: true },
     { key: "proof", label: "Proof", href: "#proof", enabled: true },
-    { key: "contact", label: "Contact", href: "#contact", enabled: true },
+    // { key: "contact", label: "Contact", href: "#contact", enabled: true },
   ],
 };
 

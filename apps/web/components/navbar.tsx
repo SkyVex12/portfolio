@@ -30,12 +30,12 @@ export default function Navbar({ links }: { links: NavLink[] }) {
           transition={{ duration: 0.35 }}
           className="flex items-center gap-3"
         >
-          <Link
+          {/* <Link
             href={PROFILE.ctaPrimary.href}
             className="ringy hidden rounded-full bg-white px-4 py-2 text-sm font-medium text-black hover:opacity-90 dark:bg-white dark:text-black sm:inline"
           >
             {PROFILE.ctaPrimary.label}
-          </Link>
+          </Link> */}
           <ThemeToggle />
         </motion.div>
       </div>

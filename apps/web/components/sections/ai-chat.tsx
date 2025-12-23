@@ -71,7 +71,7 @@ export default function AiChat() {
         {
           role: "assistant",
           content:
-            "I hit an error calling the AI API. Make sure you set OPENAI_API_KEY in .env.local and restart the dev server.",
+            "I hit an error calling the AI API. Try again in a minute or contact support.",
         },
       ]);
     } finally {
