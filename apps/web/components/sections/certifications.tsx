@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Section from "@/components/ui/section";
 import { ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 const CERTS = [
   {
@@ -29,7 +30,7 @@ export default function Certifications() {
     >
       <div className="grid gap-6 md:grid-cols-2">
         {CERTS.map((c) => (
-          <a
+          <Link
             key={c.href}
             href={c.href}
             target="_blank"
@@ -60,7 +61,7 @@ export default function Certifications() {
             <div className="mt-3 text-xs opacity-70">
               Click to verify →
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </Section>

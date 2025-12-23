@@ -12,6 +12,7 @@ import Proof from "@/components/sections/proof";
 import Contact from "@/components/sections/contact";
 import { SITE_CONFIG, enabledMap, navLinksFromConfig, SiteConfig } from "@/lib/site-config";
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/dist/client/link";
 
 const STORAGE_KEY = "portfolio.siteConfig.v1";
 
@@ -47,12 +48,12 @@ export default function PreviewPage() {
 
       <footer className="mx-auto max-w-6xl px-4 pb-12 text-center text-xs text-white/60">
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <a className="underline underline-offset-4 hover:opacity-90" href="/admin">
+          <Link className="underline underline-offset-4 hover:opacity-90" href="/admin">
             Back to Admin
-          </a>
-          <a className="underline underline-offset-4 hover:opacity-90" href="/">
+          </Link>
+          <Link className="underline underline-offset-4 hover:opacity-90" href="/">
             Back to Home
-          </a>
+          </Link>
         </div>
       </footer>
     </main>

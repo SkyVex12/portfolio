@@ -5,6 +5,7 @@ import Badge from "@/components/ui/badge";
 import { PROFILE } from "@/lib/data";
 import { Mail, Github, Linkedin, Send } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -55,44 +56,44 @@ export default function Contact() {
           </div>
 
           <div className="mt-4 flex flex-wrap gap-3">
-            <a
+            <Link
               href={mailto()}
               className="ringy inline-flex items-center gap-2 rounded-2xl bg-black px-5 py-3 text-sm font-medium text-white shadow-soft hover:opacity-90 dark:bg-white dark:text-black"
             >
               <Send size={16} />
               Email Goran
-            </a>
-            <a
+            </Link>
+            <Link
               href={`mailto:${PROFILE.email}`}
               className="ringy inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white/50 px-5 py-3 text-sm font-medium shadow-sm hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
             >
               <Mail size={16} />
               {PROFILE.email}
-            </a>
+            </Link>
           </div>
         </div>
 
         <div className="rounded-3xl border border-black/10 bg-white/70 p-6 shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
           <div className="text-sm font-semibold">Connect</div>
           <div className="mt-3 space-y-3 text-sm">
-            <a className="ringy flex items-center justify-between rounded-2xl border border-black/10 bg-white/50 px-4 py-3 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+            <Link className="ringy flex items-center justify-between rounded-2xl border border-black/10 bg-white/50 px-4 py-3 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                href={PROFILE.socials.github} target="_blank" rel="noreferrer">
               <span className="inline-flex items-center gap-2"><Github size={16}/> GitHub</span>
               <span className="opacity-60">↗</span>
-            </a>
+            </Link>
             {PROFILE.socials.linkedin ? (
-              <a className="ringy flex items-center justify-between rounded-2xl border border-black/10 bg-white/50 px-4 py-3 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+              <Link className="ringy flex items-center justify-between rounded-2xl border border-black/10 bg-white/50 px-4 py-3 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                  href={PROFILE.socials.linkedin} target="_blank" rel="noreferrer">
                 <span className="inline-flex items-center gap-2"><Linkedin size={16}/> LinkedIn</span>
                 <span className="opacity-60">↗</span>
-              </a>
+              </Link>
             ) : null}
             {PROFILE.socials.telegram ? (
-              <a className="ringy flex items-center justify-between rounded-2xl border border-black/10 bg-white/50 px-4 py-3 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+              <Link className="ringy flex items-center justify-between rounded-2xl border border-black/10 bg-white/50 px-4 py-3 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                  href={PROFILE.socials.telegram} target="_blank" rel="noreferrer">
                 <span className="inline-flex items-center gap-2"><Send size={16}/> Telegram</span>
                 <span className="opacity-60">↗</span>
-              </a>
+              </Link>
             ) : null}
           </div>
 

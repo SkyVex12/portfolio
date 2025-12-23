@@ -43,9 +43,9 @@ export default function PrivacyPage() {
         <h2 className="mt-8 text-lg font-semibold">Contact</h2>
         <p className="mt-3 text-sm opacity-85">
           If you have questions about this policy, contact: {" "}
-          <a className="underline underline-offset-4" href={`mailto:${PROFILE.email}`}>
+          <Link className="underline underline-offset-4" href={`mailto:${PROFILE.email}`}>
             {PROFILE.email}
-          </a>
+          </Link>
         </p>
       </div>
     </main>

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { SITE_CONFIG, SiteConfig, SectionDef } from "@/lib/site-config";
+import Link from "next/link";
 
 const STORAGE_KEY = "portfolio.siteConfig.v1";
 
@@ -146,9 +147,9 @@ export default function AdminPage() {
         </div>
 
         <div className="mt-5 flex flex-wrap gap-2">
-          <a href="/preview" className="rounded-lg bg-white px-3 py-2 text-sm font-medium text-black hover:opacity-90">
+          <Link href="/preview" className="rounded-lg bg-white px-3 py-2 text-sm font-medium text-black hover:opacity-90">
             Open Preview
-          </a>
+          </Link>
           <button onClick={copyJson} className="rounded-lg border border-white/10 px-3 py-2 text-sm hover:bg-white/5" type="button">
             Copy JSON
           </button>

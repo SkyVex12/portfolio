@@ -2,6 +2,7 @@ import Section from "@/components/ui/section";
 import Badge from "@/components/ui/badge";
 import { PROJECTS } from "@/lib/data";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Projects() {
   return (
@@ -12,16 +13,16 @@ export default function Projects() {
       desc={
         <>
           Personal and demo builds that showcase how I design AI + automation systems. Want a deeper write-up?{" "}
-          <a className="underline underline-offset-4 hover:opacity-90" href="#contact">
+          <Link className="underline underline-offset-4 hover:opacity-90" href="#contact">
             Request a quick case study
-          </a>
+          </Link>
           .
         </>
       }
     >
       <div className="grid gap-5 md:grid-cols-2">
         {PROJECTS.map((p) => (
-          <a
+          <Link
             key={p.title}
             href={p.link}
             className="group rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
@@ -48,7 +49,7 @@ export default function Projects() {
             <div className="mt-4 text-xs opacity-70">
               Demo/personal build. Details available on request.
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </Section>

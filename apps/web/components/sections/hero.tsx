@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Badge from "@/components/ui/badge";
 import { PROFILE, STACK } from "@/lib/data";
+import Link from "next/link";
 
 const roles = [
   "AI Automation Engineer",
@@ -56,18 +57,18 @@ export default function Hero() {
             </motion.div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
+              <Link
                 href={PROFILE.ctaPrimary.href}
                 className="ringy rounded-full bg-black px-5 py-3 text-sm font-medium text-white shadow-soft hover:opacity-90 dark:bg-white dark:text-black"
               >
                 {PROFILE.ctaPrimary.label}
-              </a>
-              <a
+              </Link>
+              <Link
                 href={PROFILE.ctaSecondary.href}
                 className="ringy rounded-full border border-black/10 bg-white/50 px-5 py-3 text-sm font-medium shadow-sm hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
               >
                 {PROFILE.ctaSecondary.label}
-              </a>
+              </Link>
             </div>
 
             <p className="mt-4 text-xs opacity-70">{PROFILE.availability}</p>

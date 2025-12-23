@@ -1,6 +1,7 @@
 import Section from "@/components/ui/section";
 import { PROFILE } from "@/lib/data";
 import { Github, Mail, MapPin, ShieldCheck } from "lucide-react";
+import Link from "next/link";
 
 export default function Proof() {
   return (
@@ -34,14 +35,14 @@ export default function Proof() {
             Contact
           </div>
           <div className="mt-3 space-y-2 text-sm opacity-85">
-            <a className="flex items-center gap-2 underline underline-offset-4 hover:opacity-90" href={`mailto:${PROFILE.email}`}>
+            <Link className="flex items-center gap-2 underline underline-offset-4 hover:opacity-90" href={`mailto:${PROFILE.email}`}>
               <Mail size={16} className="opacity-75" />
               {PROFILE.email}
-            </a>
-            <a className="flex items-center gap-2 underline underline-offset-4 hover:opacity-90" href={PROFILE.socials.github} target="_blank" rel="noreferrer">
+            </Link>
+            <Link className="flex items-center gap-2 underline underline-offset-4 hover:opacity-90" href={PROFILE.socials.github} target="_blank" rel="noreferrer">
               <Github size={16} className="opacity-75" />
               GitHub: {PROFILE.socials.github.replace("https://", "")}
-            </a>
+            </Link>
             <div className="flex items-center gap-2">
               <MapPin size={16} className="opacity-75" />
               {PROFILE.location}

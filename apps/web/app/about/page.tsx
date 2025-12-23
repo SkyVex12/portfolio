@@ -30,10 +30,10 @@ export default function AboutPage() {
         <div className="mt-8 rounded-2xl border border-black/10 bg-white/50 p-5 shadow-soft dark:border-white/10 dark:bg-white/5">
           <div className="text-sm font-semibold">Contact</div>
           <p className="mt-2 text-sm opacity-85">
-            Email: <a className="underline underline-offset-4" href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a>
+            Email: <Link className="underline underline-offset-4" href={`mailto:${PROFILE.email}`}>{PROFILE.email}</Link>
           </p>
           <p className="mt-2 text-sm opacity-85">
-            GitHub: <a className="underline underline-offset-4" href={PROFILE.socials.github} target="_blank" rel="noreferrer">{PROFILE.socials.github}</a>
+            GitHub: <Link className="underline underline-offset-4" href={PROFILE.socials.github} target="_blank" rel="noreferrer">{PROFILE.socials.github}</Link>
           </p>
         </div>
       </div>

@@ -4,6 +4,7 @@ import Section from "@/components/ui/section";
 import Badge from "@/components/ui/badge";
 import { useMemo, useState } from "react";
 import { ArrowRight, FileText, Lock, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 type TrialResult = {
   ok: boolean;
@@ -74,24 +75,24 @@ export default function ResumeBuilder() {
 
           <p className="mt-2">
             The output typically scores{" "}
-            <a
+            <Link
               href="https://www.jobscan.co/"
               target="_blank"
               rel="noopener noreferrer"
               className="underline underline-offset-2 hover:opacity-80"
             >
               90%+ on Jobscan-style ATS checks
-            </a>.
+            </Link>.
           </p>
 
           <p className="mt-2">
             If the result looks valuable, I can also provide a{" "}
-            <a
+            <Link
               href="#contact"
               className="underline underline-offset-2 hover:opacity-80"
             >
               local desktop version
-            </a>{" "}
+            </Link>{" "}
             for power users (hotkeys, fast iterations, PDF formatting, private usage).
           </p>
         </>
