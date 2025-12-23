@@ -9,47 +9,54 @@ import Certifications from "@/components/sections/certifications";
 import Proof from "@/components/sections/proof";
 import Contact from "@/components/sections/contact";
 import { SITE_CONFIG, enabledMap, navLinksFromConfig } from "@/lib/site-config";
+import FluidBackground from "@/components/visuals/fluid-background";
 
 export default function Page() {
   const enabled = enabledMap(SITE_CONFIG);
   const links = navLinksFromConfig(SITE_CONFIG);
 
   return (
-    <main className="min-h-screen">
-      <Navbar links={links} />
+    <main className="relative min-h-screen">
+      {/* background layer */}
+      <FluidBackground />
 
-      {enabled.home && <Hero />}
-      {enabled.aiChat && <AiChat />}
-      {enabled.resumeBuilder && <ResumeBuilderLazy />}
-      {enabled.services && <Services />}
-      {enabled.projects && <Projects />}
-      {enabled.experience && <Experience />}
-      {enabled.certifications && <Certifications />}
-      {enabled.proof && <Proof />}
-      {enabled.contact && <Contact />}
+      {/* content layer */}
+      <div className="relative z-10">
+        <Navbar links={links} />
 
-      <footer className="mx-auto max-w-6xl px-4 pb-12 text-center text-xs text-white/60">
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <a className="underline underline-offset-4 hover:opacity-90" href="/about">
-            About
-          </a>
-          <a className="underline underline-offset-4 hover:opacity-90" href="/privacy">
-            Privacy
-          </a>
-          <a className="underline underline-offset-4 hover:opacity-90" href="/terms">
-            Terms
-          </a>
-          <a className="underline underline-offset-4 hover:opacity-90" href="/admin">
-            Admin
-          </a>
-          <a className="underline underline-offset-4 hover:opacity-90" href="/preview">
-            Preview
-          </a>
-        </div>
-        <div className="mt-2">
-          Personal portfolio showcasing example projects. No guarantees or business outcomes implied.
-        </div>
-      </footer>
+        {enabled.home && <Hero />}
+        {enabled.aiChat && <AiChat />}
+        {enabled.resumeBuilder && <ResumeBuilderLazy />}
+        {enabled.services && <Services />}
+        {enabled.projects && <Projects />}
+        {enabled.experience && <Experience />}
+        {enabled.certifications && <Certifications />}
+        {enabled.proof && <Proof />}
+        {enabled.contact && <Contact />}
+
+        <footer className="mx-auto max-w-6xl px-4 pb-12 text-center text-xs text-white/60">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a className="underline underline-offset-4 hover:opacity-90" href="/about">
+              About
+            </a>
+            <a className="underline underline-offset-4 hover:opacity-90" href="/privacy">
+              Privacy
+            </a>
+            <a className="underline underline-offset-4 hover:opacity-90" href="/terms">
+              Terms
+            </a>
+            <a className="underline underline-offset-4 hover:opacity-90" href="/admin">
+              Admin
+            </a>
+            <a className="underline underline-offset-4 hover:opacity-90" href="/preview">
+              Preview
+            </a>
+          </div>
+          <div className="mt-2">
+            Personal portfolio showcasing example projects. No guarantees or business outcomes implied.
+          </div>
+        </footer>
+      </div>
     </main>
   );
 }

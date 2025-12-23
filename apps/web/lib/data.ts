@@ -13,7 +13,7 @@ export const PROFILE = {
   location: "Remote (US/Europe friendly)",
   email: "mitrovicgoran598@gmail.com",
   socials: {
-    github: "https://github.com/SkyVex12",
+    github: "https://github.com/SkyVexDev",
     linkedin: "",
     telegram: "",
   },

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Badge from "@/components/ui/badge";
 import { PROFILE, STACK } from "@/lib/data";
 
@@ -73,7 +74,22 @@ export default function Hero() {
           </div>
 
           <div className="rounded-3xl border border-black/10 bg-white/70 p-6 shadow-soft backdrop-blur dark:border-white/10 dark:bg-white/5">
-            <div className="flex items-center justify-between">
+            <div className="grid place-items-center">
+              <div className="grid grid-cols-[200px,1fr] items-center sm:grid-cols-[420px,1fr]">
+                  <div className="relative h-52 w-52 overflow-hidden rounded-3xl ring-1 ring-black/10 sm:h-[420px] sm:w-[420px] dark:ring-white/10">
+                    <Image
+                      src="/headshot.jpg"
+                      alt="Portrait"
+                      fill
+                      sizes="(max-width: 640px) 200px, 420px"
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+              </div>
+            </div>
+
+            <div className="mt-5 flex items-center justify-between">
               <div className="text-sm font-semibold">Tech stack</div>
               <Badge>Production-first</Badge>
             </div>

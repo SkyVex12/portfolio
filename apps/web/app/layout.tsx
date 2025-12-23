@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Providers from "@/components/providers";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://stellar-platypus-e2865b.netlify.app"),
+  metadataBase: new URL("https://goran-portfolio.netlify.app"),
   title: {
     default: "Goran — AI Automation Developer",
     template: "%s — Goran",
@@ -52,8 +52,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@type": "Person",
               name: "Goran",
               jobTitle: "AI Automation Developer",
-              url: "https://stellar-platypus-e2865b.netlify.app",
-              sameAs: ["https://github.com/SkyVex12"],
+              url: "https://goran-portfolio.netlify.app",
+              sameAs: ["https://github.com/SkyVexDev"],
             }),
           }}
         />

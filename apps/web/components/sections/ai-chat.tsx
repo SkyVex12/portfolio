@@ -24,7 +24,7 @@ export default function AiChat() {
     {
       role: "assistant",
       content:
-        "Hi — I’m Goran. Tell me what you want to automate (support, ops, CRM, PDFs, bots), and I’ll suggest a fast pilot plan.",
+        "Hi — I’m Goran's AI assistant. Tell me what you want to automate (support, ops, CRM, PDFs, bots), and I’ll suggest a fast pilot plan.",
     },
   ]);
   const [input, setInput] = useState("");

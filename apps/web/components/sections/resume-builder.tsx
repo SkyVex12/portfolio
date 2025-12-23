@@ -92,7 +92,7 @@ export default function ResumeBuilder() {
             >
               local desktop version
             </a>{" "}
-            for power users (hotkeys, fast iterations, private usage).
+            for power users (hotkeys, fast iterations, PDF formatting, private usage).
           </p>
         </>
       }
