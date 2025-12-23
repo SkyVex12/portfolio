@@ -57,12 +57,12 @@ export default function Hero() {
             </motion.div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
+              {/* <Link
                 href={PROFILE.ctaPrimary.href}
                 className="ringy rounded-full bg-black px-5 py-3 text-sm font-medium text-white shadow-soft hover:opacity-90 dark:bg-white dark:text-black"
               >
                 {PROFILE.ctaPrimary.label}
-              </Link>
+              </Link> */}
               <Link
                 href={PROFILE.ctaSecondary.href}
                 className="ringy rounded-full border border-black/10 bg-white/50 px-5 py-3 text-sm font-medium shadow-sm hover:bg-white dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
