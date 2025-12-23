@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import Script from "next/script";
 import Providers from "@/components/providers";
 
 export const metadata: Metadata = {
@@ -57,6 +58,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }),
           }}
         />
+        {/* Plausible Analytics */}
+        <Script
+          src="https://plausible.io/js/pa-BBdKcsiDAKn_5TXMvdYdq.js"
+          strategy="afterInteractive"
+        />
+
+        <Script id="plausible-init" strategy="afterInteractive">
+          {`
+            window.plausible = window.plausible || function() {
+              (plausible.q = plausible.q || []).push(arguments)
+            };
+            plausible.init = plausible.init || function(i) {
+              plausible.o = i || {};
+            };
+            plausible.init();
+          `}
+        </Script>
       </head>
       <body>
         <Providers>{children}</Providers>
